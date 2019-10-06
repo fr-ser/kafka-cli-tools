@@ -1,5 +1,7 @@
 # kafka-cli-tools
 
+[![Docker Pulls](https://img.shields.io/docker/pulls/frser/kafka-cli.svg)](https://hub.docker.com/r/frser/kafka-cli/)
+
 docker image with kafka cli tools
 
 # Usage example:
