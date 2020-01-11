@@ -6,7 +6,7 @@ docker image with kafka cli tools
 
 # Usage example:
 
-[See docker-compose file](docker-compose.yaml)
+See docker-compose [file](docker-compose.yaml) in [Github](https://github.com/fr-ser/kafka-cli-tools)
 
 ## Topic creation:
 
