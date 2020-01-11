@@ -6,23 +6,14 @@ docker image with kafka cli tools
 
 # Usage example:
 
-```yaml
-version: "3.6"
+[See docker-compose file](docker-compose.yaml)
 
-services:
-  kafka:
-    image: spotify/kafka
-    ports:
-      - "9092:9092"
-      - "2181:2181"
-    environment:
-      ADVERTISED_HOST: kafka
-      ADVERTISED_PORT: 9092
-      TOPICS: readings
-    producer:
-      image: frser/kafka-cli:2.3.0
-      command: kafka-console-producer.sh --broker-list kafka:9092 --topic readings
-    consumer:
-      image: frser/kafka-cli:2.3.0
-      command: kafka-console-consumer.sh --bootstrap-server kafka:9092 --topic readings --from-beginning
+## Topic creation:
+
+This CLI can also create topics via environment configuration. Below are example environment
+variables to create two topics:
+
+```bash
+BOOTSTRAP_SERVER="kafka:29092"
+CREATE_TOPICS="test.telemetry.readings:3:1,test.telemetry.alarms"
 ```

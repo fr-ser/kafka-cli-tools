@@ -15,3 +15,7 @@ RUN wget $KAFKA_URL -O ${KAFKA_TMP_DEST} && \
     rm ${KAFKA_TMP_DEST}
 
 WORKDIR /cli
+
+ADD create_topics.sh ./
+
+CMD [ "/cli/create_topics.sh" ]
