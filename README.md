@@ -4,6 +4,12 @@
 
 [docker image with kafka cli tools](https://hub.docker.com/r/frser/kafka-cli/)
 
+This project owes all of its inspiration and most of the code to:
+https://github.com/wurstmeister/kafka-docker/
+
+The reason for this repo next to wurstmeister is to allow using different kafka sources (e.g.
+confluent) and still being able to use topic creation through containers.
+
 **Caveat**: As the CLI tools run **inside** docker, the container needs to be able to access
 Kafka from there. This is usually done by spawning the container in the same docker-compose file
 or by attaching the container to the same docker network Kafka is in.

@@ -1,4 +1,4 @@
-FROM openjdk:14-jdk-alpine3.10
+FROM openjdk:8u212-jre-alpine
 LABEL MAINTAINER="Sergej Herbert <herbert.sergej@gmail.com>"
 
 ARG KAFKA_VERSION=2.6.0
