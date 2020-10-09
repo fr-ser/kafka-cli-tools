@@ -24,6 +24,9 @@ services:
   kafka-cli:
     build:
       context: ../docker
+      args:
+        KAFKA_VERSION_ARG: "${KAFKA_VERSION:-2.6.0}"
+        SCALA_VERSION_ARG: "${SCALA_VERSION:-2.12}"
     environment:
       BOOTSTRAP_SERVER: kafka:9092
       ZOOKEEPER: zookeeper:2181
