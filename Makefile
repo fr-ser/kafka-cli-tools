@@ -1,5 +1,5 @@
 install:
-	python -m pipenv install --python 3.7 --dev
+	python -m pipenv install --dev
 
 teardown:
 	docker-compose down --volumes --remove-orphans --timeout 5
