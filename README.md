@@ -4,17 +4,19 @@
 
 [docker image with kafka cli tools](https://hub.docker.com/r/frser/kafka-cli/)
 
+## Appreciation and reason for existence
+
 This project owes all of its inspiration and most of the code to:
 https://github.com/wurstmeister/kafka-docker/
 
 The reason for this repo next to wurstmeister is to allow using different kafka sources (e.g.
 confluent) and still being able to use topic creation through containers.
 
+## Usage example
+
 **Caveat**: As the CLI tools run **inside** docker, the container needs to be able to access
 Kafka from there. This is usually done by spawning the container in the same docker-compose file
 or by attaching the container to the same docker network Kafka is in.
-
-# Usage example
 
 For a full example see: [file](docker-compose.yaml) in [Github](https://github.com/fr-ser/kafka-cli-tools)
 
@@ -32,7 +34,7 @@ kafka-cli:
       errors,
 ```
 
-## Topic creation
+### Topic creation
 
 This CLI can also create topics via environment configuration. Below are example environment
 variables to create two topics:
@@ -55,13 +57,13 @@ CREATE_TOPICS: >-
 docker-compose run --rm kafka-cli
 ```
 
-## Waiting for kafka
+### Waiting for kafka
 
 ```sh
 docker-compose run --rm kafka-cli
 ```
 
-## Executing a one off command
+### Executing a one off command
 
 ```sh
 docker-compose run --rm -e CREATE_TOPICS="" -e START_TIMEOUT=20 kafka-cli kafka-topics.sh --list --bootstrap-server kafka:9092
