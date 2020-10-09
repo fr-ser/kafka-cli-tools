@@ -23,3 +23,10 @@ test-without-bootstrap:
 
 test: bootstrap-test test-without-bootstrap
 	docker-compose -f tests/docker-compose.test.yaml down --volumes --remove-orphans --timeout 5 > /dev/null
+
+build-and-push:
+	docker build --build-arg KAFKA_VERSION_ARG=$${KAFKA_VERSION:-2.6.0} \
+		 --build-arg SCALA_VERSION_ARG=$${SCALA_VERSION:-2.12} \
+		-t frser/kafka-cli:$${DOCKER_TAG:-$$SCALA_VERSION-$$KAFKA_VERSION} \
+		./docker
+	docker push frser/kafka-cli:$${DOCKER_TAG:-$$SCALA_VERSION-$$KAFKA_VERSION}

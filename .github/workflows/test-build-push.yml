@@ -1,4 +1,4 @@
-name: ci-tests
+name: test-build-push
 
 on: push
 
@@ -8,7 +8,16 @@ jobs:
 
     strategy:
       matrix:
-        kafka-version: ["2.2.1", "2.4.0", "2.6.0"]
+        include:
+        - kafka-version: "2.2.1"
+          scala-version: "2.12"
+          docker-tag: "2.2.1"
+        - kafka-version: "2.4.0"
+          scala-version: "2.12"
+          docker-tag: "2.4.0"
+        - kafka-version: "2.6.0"
+          scala-version: "2.13"
+          docker-tag: "2.6.0"
 
     steps:
       - uses: actions/checkout@v2
@@ -34,3 +43,9 @@ jobs:
         run: make test
         env:
           KAFKA_VERSION: ${{ matrix.kafka-version }}
+      - name: Push to dockerhub
+        run: make build-and-push
+        env:
+          KAFKA_VERSION: ${{ matrix.kafka-version }}
+          SCALA_VERSION: ${{ matrix.scala-version }}
+          DOCKER_TAG: ${{ matrix.docker-tag }}

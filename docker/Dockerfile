@@ -1,6 +1,8 @@
 FROM openjdk:8u212-jre-alpine
 LABEL MAINTAINER="Sergej Herbert <herbert.sergej@gmail.com>"
 
+RUN apk update && apk upgrade && apk add bash curl jq
+
 ARG KAFKA_VERSION_ARG=2.6.0
 ENV KAFKA_VERSION=${KAFKA_VERSION_ARG}
 ARG SCALA_VERSION_ARG=2.12
@@ -9,7 +11,6 @@ ENV KAFKA_TMP_DEST=/cli/kafka.tgz
 ENV KAFKA_WORKDIR=/cli/kafka
 ENV PATH=$PATH:/cli/kafka/bin
 
-RUN apk update && apk upgrade && apk add bash curl jq
 RUN mkdir -p ${KAFKA_WORKDIR}
 
 COPY download_kafka.sh /tmp/

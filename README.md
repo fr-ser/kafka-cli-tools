@@ -2,7 +2,7 @@
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/frser/kafka-cli.svg)](https://hub.docker.com/r/frser/kafka-cli/)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-[![CI Tests](https://github.com/fr-ser/kafka-cli-tools/workflows/ci-tests/badge.svg)](https://github.com/fr-ser/kafka-cli-tools/actions)
+[![CI Test, Build, Push](https://github.com/fr-ser/kafka-cli-tools/workflows/test-build-push/badge.svg)](https://github.com/fr-ser/kafka-cli-tools/actions)
 
 [docker image with kafka cli tools](https://hub.docker.com/r/frser/kafka-cli/)
 
