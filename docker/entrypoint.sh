@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Incredibly heavily inspired by wurstmeister's solution
-# https://github.com/wurstmeister/kafka-docker/
-
-
 if [[ -z "$BOOTSTRAP_SERVER" ]] && [[ ! -z "$CREATE_TOPICS" ]]; then
     echo "Missing required environment variable: BOOTSTRAP_SERVER (e.g. 'kafka:9092')"
 fi
