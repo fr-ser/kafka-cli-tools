@@ -18,7 +18,8 @@ confluent) and still being able to use topic creation through containers.
 Kafka from there. This is usually done by spawning the container in the same docker-compose file
 or by attaching the container to the same docker network Kafka is in.
 
-For a full example see: [file](docker-compose.yaml) in [Github](https://github.com/fr-ser/kafka-cli-tools)
+For a full example see: [file](docker-compose.yaml) in
+[Github](https://github.com/fr-ser/kafka-cli-tools/blob/master/docker-compose.yaml)
 
 The following examples will be based on this configuration:
 

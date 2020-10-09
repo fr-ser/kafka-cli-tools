@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# Incredibly heavily inspired by wurstmeister's solution
-# https://github.com/wurstmeister/kafka-docker/blob/master/create-topics.sh
-
-
-
 # Expected format:
 #   name:[partitions[:replicas[:cleanup.policy]]]
 IFS=","; for topicToCreate in $CREATE_TOPICS; do
