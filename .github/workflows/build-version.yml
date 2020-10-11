@@ -1,9 +1,25 @@
-name: test-build-push
+name: build-version
 
-on: push
+
+on:
+  workflow_dispatch:
+    inputs:
+      kafka-version:
+        description: "Kafka version"
+        required: true
+        default: '2.6.0'
+      scala-version:
+        description: 'Scala version'
+        required: true
+        default: '2.13'
+      docker-tag:
+        description: 'Tag of the docker image'
+        required: true
+        default: '2.13-2.6.0'
 
 jobs:
-  test-and-build-latest:
+
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
@@ -28,7 +44,12 @@ jobs:
         run: make install
       - name: Run tests
         run: make test
+        env:
+          KAFKA_VERSION: ${{ github.event.inputs.kafka-version }}
+          SCALA_VERSION: ${{ github.event.inputs.scala-version }}
       - name: Push to dockerhub
         run: make build-and-push
         env:
-          DOCKER_TAG: latest
+          KAFKA_VERSION: ${{ github.event.inputs.kafka-version }}
+          SCALA_VERSION: ${{ github.event.inputs.scala-version }}
+          DOCKER_TAG: ${{ github.event.inputs.docker-tag }}
